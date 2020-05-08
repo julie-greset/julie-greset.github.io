@@ -3,14 +3,456 @@
 <html>
 
 <head>
-    <link type="text/css" rel="stylesheet" href="/style.e308ff8e.css">
-    <title>Graphique projet exercice</title>
-    <link href="https://fonts.googleapis.com/css?family=Cairo:400,600,700,900&display=swap" rel="stylesheet">
-<script src="/style.e308ff8e.js"></script></head>
+    <link type="text/css" rel="stylesheet" href="/style.493e6e98.css">
+    <title>VisualDon - Projet Confinement</title>
+    <script src="/jquery-3.5.0.min.719c8a4e.js"></script>
+    <link rel="stylesheet" href="/bootstrap-grid.min.57864400.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,700,500,100,800" rel="stylesheet">
+<script src="/style.493e6e98.js"></script><script src="/bootstrap-grid.min.57864400.js"></script></head>
 
 <body>
-    <h1>Mon nombre de pas durant les 30 premiers jours de confinement</h1>
-    <div id="chart"></div>
+    <div id="cover">
+        <img src="/illu-laurie_resize.e3747430.png" alt="">
+    </div>
+    <h1>Nos 30 premiers jours de confinement <br>en chiffres</h1>
+    <div class="intro-text">
+        <p> 
+            
+            Voici Ingrid et Julie, deux étudiantes en ingénierie des médias à la HEIG-VD.
+            Comme la plupart d’entre vous, elles vivent actuellement en confinement, depuis déjà bientôt plus de 40 jours.
+            Depuis le jour 1, leurs vies et leurs habitudes ont drastiquement changé.
+            Après discussions, il était intéressant de remarquer que malgré le fait qu'elles faisaient toutes les deux
+            un confinement de manière rigoureuse (donc tous les jours à la maison), elles avaient une activité physique
+            très différente. Pour en arriver là, il a fallu tout d'abord s'intéresser au nombre de pas réalisés par chacune durant
+            les 30 premiers jours du confinement. Par la suite, grâce à de nombreuses données récoltées, il a été possible de créer
+            divers graphiques, lesquels nous ont aidé à retracer leur chemin pour découvrir ce qu’elles ont bien pu faire.
+            <br><br>Sur ce, bonne visualisation !
+        </p>
+    </div>
+    <div>
+        <div id="pasJulie"></div>
+        <div id="pasIngrid"></div>
+        <div id="graphique1"></div>
+    </div>
+
+    <div class="intro-text2">
+        <p>
+            Comme on peut le voir, Ingrid et et Julie ont quand même bougé, malgré le confinement.
+            On remarque tout de même assez rapidement que Julie bouge d’une manière plus ou moins constante,
+            alors qu’Ingrid a fait un grand nombre de ces pas sur certains jour seulement.
+            Comment ça se fait ? Qu’est-ce qu’elle ont fait pendant ces jours-là ? 
+        </p>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-6 titre-infos">
+                <b>Nombre de pas de Julie</b>
+                <div class="row">
+                    <div class="col-6 infos-big-julie infos" id="pourcentageJulie">
+                        <!-- JS -->
+                    </div>
+                    <div class="col-6 infos-small infos">
+                        de plus<br>
+                        qu'Ingrid
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 titre-infos">
+                <b>Nombre de pas d'Ingrid</b>
+                <div class="row">
+                    <div class="col-6 infos-big-ingrid infos" id="pourcentageIngrid">
+                        <!-- JS -->
+                    </div>
+                    <div class="col-6 infos-small infos">
+                        se concentrent<br>
+                        sur 9 jours
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container container-boutons">
+        <div class="row">
+            <div class="col-6 bouton-julie boutons">
+                Qu'est-ce que Julie a fait <br>
+                avec 62'127 pas ? <br>
+                <img src="/arrow_icon.99619b92.svg" alt="">
+            </div>
+            <div class="col-6 bouton-ingrid boutons">
+                Qu'est-ce qu'Ingrid a fait <br>
+                pendant ces 4 jours <br>
+                <img src="/arrow_icon.99619b92.svg" alt="">
+            </div>
+        </div>
+    </div>
+    <div id="test"></div>
+
+    <div class="container" id="container-julie" style="display: none;">
+        <div id="enteteJulie">
+            <img class="imgTitre" src="/julie_rounded.f27dc049.png">
+            <h1 class="titreIngrid">Qu'est-ce que Julie a fait avec 62'127 pas ?</h1>
+        </div>
+        <div class="row titre-ville">
+            <div class="col-12">
+                Les 16 premiers jours <br>
+                à Lausanne
+            </div>
+        </div>
+        <div class="row">
+            <div class="intro-text-julie">
+                <p>
+                    Julie a commencé le confinement à Lausanne. Elle l'a fait de manière appliquée à partir du 14 mars.
+                    Depuis ce jour-là, elle a décidé de ne sortir que pour faire les courses, aller au parc
+                    de temps en temps et à 2 mètres de distance avec les autres, et faire du sport quand elle en avait le courage.
+                </p>
+            </div>
+        </div>
+        <div class="row-infos">
+        <div class="row">
+            <div class="col-4 titre-infos">
+                <b>Nombre de pas</b>
+                <div class="row">
+                    <div class="col-6 infos-big-julie infos" id="pasLausanne">
+                        <!-- JS -->
+                    </div>
+                    <div class="col-6 infos-small infos">
+                        soit <span class="infos-small-bold" id="pourcentagePasLausanne"><!-- JS --></span><br>
+                        des pas totaux
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 titre-infos">
+                <b>Nombre d'activités différentes</b>
+                <div class="row">
+                    <div class="col-12 infos-big-julie infos" id="nb-activites-lausanne">
+                        <!-- JS -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 titre-infos">
+                <b>Le plus d'activités en un jour</b>
+                <div class="row">
+                    <div class="col-6 infos-big-julie infos" id="nb-max-activites-lausanne">
+                        <!-- JS -->
+                    </div>
+                    <div class="col-6 infos-small infos">
+                        activités<br>
+                        le <span class="infos-small-bold" id="jour-max-activites-lausanne"><!--JS--></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!---------- Graphique Lausanne ---------->
+        <div class="row">
+            <div class="col-12 graphique-julie-titre">
+                Total des reports d'activités extérieures et intérieures
+            </div>
+            <div class="col-12" id="graphiqueLausanne">
+            </div>
+        </div>
+    </div>
+
+        <div class="row-infos">
+        <div class="row">
+            <div class="col-4 titre-infos">
+                <b>Activités extérieures</b>
+                <div class="row">
+                    <div class="col-12 infos-big-julie infos infos-big-alone" id="pourcentage-activites-ext">
+                        <!-- JS -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 titre-infos">
+                <b>Activité favorite</b>
+                <div class="row">
+                    <div class="col-12 infos-big-julie infos infos-big-alone" id="activite-favorite-lausanne">
+                        <!-- JS -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 titre-infos">
+                <b>Activités devant un écran</b>
+                <div class="row">
+                    <div class="col-12 infos-big-julie infos-big-alone" id="pourcentage-activites-ecran">
+                        <!-- JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4 infos-combien-de-fois">
+                Sport <span class="infos-combien-de-fois-blue">
+                    1x
+                </span>
+            </div>
+            <div class="col-4 infos-combien-de-fois">
+                Apéro <span class="infos-combien-de-fois-blue">
+                    11x
+                </span>
+            </div>
+            <div class="col-4 infos-combien-de-fois">
+                Appel vidéo <span class="infos-combien-de-fois-blue">
+                    7x
+                </span>
+            </div>
+        </div>
+    </div>
+
+        <!----------Genève---------------->
+        <div class="row titre-ville">
+            <div class="col-12">
+                Les 14 jours restants<br>
+                à Genève
+            </div>
+        </div>
+        <div class="row" id="row-intro-geneve">
+            <div class="col-6 intro-text-geneve">
+                <p>
+                    Julie a fini son confinement à Genève, où elle a visiblement fait plus de pas.
+                    Si au premier abord ses activités n'ont pas réellement divergées de celle pratiquées à Lausanne,
+                    une nouvelle constante importante est toutefois apparue : un chien. Cela pourrait donc expliquer
+                    plusieurs choses...
+                </p>
+            </div>
+            <div class="col-6" id="img-dog-box">
+                <img src="/dog.6fcc2b46.svg" id="img-dog" alt="">
+            </div>
+        </div>
+
+        <div class="row-infos">
+        <div class="row">
+            <div class="col-4 titre-infos">
+                <b>Nombre de pas</b>
+                <div class="row">
+                    <div class="col-6 infos-big-julie infos" id="pasGeneve">
+                        <!-- JS -->
+                    </div>
+                    <div class="col-6 infos-small infos">
+                        soit <span class="infos-small-bold" id="pourcentagePasGeneve"><!-- JS --></span><br>
+                        des pas totaux
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 titre-infos">
+                <b>Nombre d'activités différentes</b>
+                <div class="row">
+                    <div class="col-12 infos-big-julie infos" id="nb-activites-geneve">
+                        <!-- JS -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 titre-infos">
+                <b>Le plus d'activités en un jour</b>
+                <div class="row">
+                    <div class="col-6 infos-big-julie infos" id="nb-max-activites-geneve">
+                        <!-- JS -->
+                    </div>
+                    <div class="col-6 infos-small infos">
+                        activités<br>
+                        le <span class="infos-small-bold" id="jour-max-activites-geneve"><!--JS--></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <!---------- Graphique Genève ---------->
+        <div class="row">
+            <div class="col-12 graphique-julie-titre">
+                Total des reports d'activités extérieures et intérieures
+            </div>
+            <div class="col-12" id="graphiqueGeneve">
+            </div>
+        </div>
+
+        <div class="row-infos">
+        <div class="row">
+            <div class="col-4 titre-infos">
+                <b>Activités extérieures</b>
+                <div class="row">
+                    <div class="col-12 infos-big-julie infos infos-big-alone" id="pourcentage-activites-ext-geneve">
+                        <!-- JS -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 titre-infos">
+                <b>Activité favorite</b>
+                <div class="row">
+                    <div class="col-12 infos-big-julie infos infos-big-alone" id="activite-favorite-geneve">
+                        <!-- JS -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 titre-infos">
+                <b>Activités devant un écran</b>
+                <div class="row">
+                    <div class="col-12 infos-big-julie infos-big-alone" id="pourcentage-activites-ecran-geneve">
+                        <!-- JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="row-infos">
+        <div class="row">
+            <div class="col-4 infos-combien-de-fois">
+                Etudier <span class="infos-combien-de-fois-blue">
+                   13x
+            </span></div>
+            <div class="col-4 infos-combien-de-fois">
+                    Se couper les cheveux<span class="infos-combien-de-fois-blue">
+                        1x
+                    </span>
+                
+            </div>
+            <div class="col-4 infos-combien-de-fois">
+                Aller au parc <span class="infos-combien-de-fois-blue">
+                    17x
+                </span>
+            </div>
+        </div>
+        </div>
+
+    </div>
+
+    <!------------------INGRID---------------------->
+
+    <div class="container" id="container-ingrid" style="display: none;">
+        <div id="enteteIngrid">
+            <img class="imgTitre" src="/ingrid_rounded.cc840960.png">
+            <h1 id="titreIngrid">Qu'est-ce qu'Ingrid a fait avec 33'467 pas ?</h1>
+        </div>
+        <div class="intro-text-ingrid intro-text">
+            <p>
+                Ingrid a commencé le confinement de manière officielle le 14 mars 2020.
+                Depuis ce jour-là, elle a décidé de ne plus sortir de chez elle, à moins que cela soit nécessaire.
+                Après avoir analysé son comportement durant les 30 premiers jours, il en est
+                resortit qu'elle est sortie uniquement 9 fois de chez elle ! Mais qu'a-t-elle fait ces 9 jours ?
+            </p>
+        </div>
+        <div class="container" id="infos-1-ingrid">
+            <h2 id="titre-ingrid">Ingrid est principalement sortie <br>pour faire ses courses !</h2>
+            <div class="row">
+                <div class="col-6 titre-infos">
+                    <b>Nombre de pas</b>
+                    <div class="row">
+                        <div class="col-6 infos-big-ingrid infos" id="pasCourses">
+                            <!-- JS -->
+                        </div>
+                        <div class="col-6 infos-small infos">
+                            pas pour<br>
+                            faire les courses
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 titre-infos">
+                    <b>Nombre de sorties</b>
+                    <div class="row">
+                        <div class="col-6 infos-big-ingrid infos" id="sorties">
+                            <!-- JS -->
+                        </div>
+                        <div class="col-6 infos-small infos">
+                            dont <span class="infos-small-bold-ingrid">5</span> pour<br>
+                            faire des courses
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!------------Graphique 1 Ingrid---------------->
+        <div id="graphique4"></div>
+        <div class="container courses">
+            <h2>Qu’est-ce que Ingrid a acheté <br> durant ces 30 jours ? </h2>
+            <div class="row" id="row-ingrid-text2">
+                <div class="col-6" id="img-courses">
+                    <img src="/ingridCourses.66a70983.png" id="img-courses" alt="">
+                </div>
+                <div class="col-6" id="intro-text-ingrid-2">
+                    <p>
+                        Comme on a pu le voir, Ingrid est sortie majoritairement pour faire ses courses.
+                        Dans sa vie, elle n’a pas l’habitude de réfléchir à ce qu’elle a envie d’acheter : elle
+                        a une idée de plat et elle va faire ses courses ! De plus, elle privilégie les produits frais et
+                        locaux. La situation particulière a donc dû avoir une influence sur sa manière de faire ses courses...
+                    </p>
+                </div>
+            </div>
+            <div class="row row-ingrid-infos2">
+                <div class="col-4 titre-infos">
+                    <b>Nombre de produits achetés</b>
+                    <div class="row">
+                        <div class="col-6 infos-big-ingrid infos" id="nbProduit">
+                            <!-- JS -->
+                        </div>
+                        <div class="col-6 infos-small infos">
+                            produits <br>
+                            différents
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 titre-infos">
+                    <b>Nombre de produits indisponibles</b>
+                    <div class="row">
+                        <div class="col-3 infos-big-ingrid infos" id="indispo">
+                            <!-- JS -->
+                        </div>
+                        <div class="col-6 infos-small infos">
+                            dont <span class="infos-small-bold-ingrid">1</span> fois<br>
+                            du papier toilette
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 titre-infos">
+                    <b>Argent dépensé en courses</b>
+                    <div class="row">
+                        <div class="col-12 infos-big-ingrid infos" id="depenses">
+                            <!-- JS -->
+                        </div>
+                        <!-- <div class="col-6 infos-small infos">
+                            CHF <br>
+                            en 30 jours
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+            <!------------Graphique 2 & 3 Ingrid---------------->
+            <div class="row">
+                <div class="col-6">
+                    <div class="graphique-ingrid-titre">
+                        Produits durable vs frais
+                    </div>
+                    <div id="graphique5"></div>
+                </div>
+                <div class="col-6">
+                    <div class="graphique-ingrid-titre">
+                        Produits inhabituels vs habituels
+                    </div>
+                    <div id="graphique6"></div>
+                </div>
+            </div>
+            <!-- <div id="graphique5"></div>
+            <div id="graphique6"></div> -->
+            <br>
+            <div class="row" id="infos-combien-de-fois-ingrid">
+                <div class="col-6 infos-combien-de-fois">
+                    <b> Pâtes achetées</b>
+                        <span class="col-6 infos-combien-de-fois-yellow" id="pates">
+                            <!-- JS -->
+                        </span>
+                </div>
+                <div class="col-6 infos-combien-de-fois">
+                    <b>Coca zero achetés</b>
+                        <span class="col-6 infos-combien-de-fois-yellow" id="coca">
+                            <!-- JS -->
+                        </span>
+                </div>
+        </div>
+    </div>
+    </div>
     <script src="/src.e31bb0bc.js"></script>
 </body>
 
